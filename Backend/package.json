@@ -1,10 +1,12 @@
 {
   "name": "Backend",
-  "packageManager": "yarn@4.2.2",
+  "packageManager": "yarn@4.3.0",
   "dependencies": {
+    "@prisma/client": "^5.15.1",
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "express-async-errors": "^3.1.1",
+    "prisma": "^5.15.1",
     "typescript": "^5.4.5"
   },
   "scripts": {
