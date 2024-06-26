@@ -11,6 +11,8 @@ import { CreateProductController } from './controllers/product/CreateProductCont
 
 import { isAuthenticated } from './middlewares/isAuthenticated'
 
+//-- ROTAS
+
 const router = Router();
 
 //-- ROTAS USER --
