@@ -1,4 +1,4 @@
-import { Request, Response } from 'express'
+import { Request, Response } from 'express';
 import { RemoveItemService } from '../../services/order/RemoveItemService';
 
 class RemoveItemController{
@@ -9,7 +9,7 @@ class RemoveItemController{
 
         const order = await removeItemService.execute({
             item_id
-        })
+        });
 
         return res.json(order);
 

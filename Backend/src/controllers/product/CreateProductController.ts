@@ -1,5 +1,5 @@
-import {Request, Response} from 'express'
-import { CreateProductService } from '../../services/product/CreateProductService'
+import {Request, Response} from 'express';
+import { CreateProductService } from '../../services/product/CreateProductService';
 
 
 class CreateProductController{

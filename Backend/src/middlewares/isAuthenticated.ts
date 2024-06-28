@@ -1,5 +1,5 @@
-import { NextFunction, Request, Response } from 'express'
-import { verify } from 'jsonwebtoken'
+import { NextFunction, Request, Response } from 'express';
+import { verify } from 'jsonwebtoken';
 
 interface PayLoad{
     sub: string;

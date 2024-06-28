@@ -1,5 +1,5 @@
-import {Request, Response} from 'express'
-import { DetailOrderService } from '../../services/order/DetailOrderService'
+import {Request, Response} from 'express';
+import { DetailOrderService } from '../../services/order/DetailOrderService';
 
 class DetailOrderController{
     async handle(req: Request, res: Response){
@@ -9,7 +9,7 @@ class DetailOrderController{
 
         const orders = await detailOrderService.execute({
             order_id
-        })
+        });
 
         return res.json(orders);
 
