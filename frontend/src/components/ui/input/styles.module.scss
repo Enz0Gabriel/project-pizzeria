@@ -12,3 +12,12 @@
 .input::placeholder{
     color: rgba(255,255,255, 0.8);
 }
+
+@keyframes animate{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}

@@ -16,5 +16,3 @@ export function TextArea({...rest}: TextAreaProps){
         <textarea className={styles.input} {...rest}></textarea>
     )
 }
-
-export default Input
