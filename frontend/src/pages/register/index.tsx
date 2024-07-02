@@ -41,7 +41,7 @@ export default function Register() {
               type="submit"
               loading={false}
             >
-              Acessar
+              Cadastrar
             </Button>
           </form>
         
