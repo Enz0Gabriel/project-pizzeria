@@ -7,6 +7,7 @@ import logoimg from '../../public/logo.svg';
 
 import { Input } from '../components/ui/Input/index'
 import { Button } from '../components/ui/Button/index'
+import { toast } from 'react-toastify'
 
 import { AuthContext } from '../contexts/AuthContext'
 
@@ -24,7 +25,7 @@ export default function Home() {
     event.preventDefault();
 
     if(email === '' || password === ''){
-      alert("PREENCHA OS DADOS")
+      toast.warning("Preencha todos os campos!")
       return;
     }
 

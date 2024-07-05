@@ -9,6 +9,7 @@ import { Input } from '../../components/ui/Input/index'
 import { Button } from '../../components/ui/Button/index'
 
 import { AuthContext } from '../../contexts/AuthContext'
+import { toast } from 'react-toastify'
 
 import Link from 'next/link';
 
@@ -27,7 +28,7 @@ export default function Register() {
       event.preventDefault();
 
       if(name === '' || email === '' || password === ''){
-        alert("PREENCHA TODOS OS CAMPOS")
+        toast.warning("Preencha todos os campos!")
         return;
       }
 
