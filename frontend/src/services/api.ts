@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios";
 import { parseCookies } from 'nookies'
-import { AuthTokenError } from './errors/AuthtokenError'
+import { AuthTokenError } from './errors/AuthTokenError'
 
 import { signOut } from '../contexts/AuthContext'
 
