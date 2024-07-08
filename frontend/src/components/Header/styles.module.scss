@@ -1,0 +1,102 @@
+// styles.module.scss
+
+.headerContainer {
+  height: 5rem;
+  position: relative; /* Para posicionamento relativo do modal */
+}
+
+.headerContent {
+  max-width: 1120px;
+  height: 5rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  img {
+    cursor: pointer;
+  }
+}
+
+.menuNav {
+  display: flex;
+  align-items: center;
+
+  a {
+    color: var(--white);
+    padding: 0 0 0.5rem;
+    display: inline-block;
+    position: relative;
+    transition: color 0.7s;
+
+    & + a {
+      margin-left: 2rem;
+    }
+
+    &:hover {
+      color: var(--red-900);
+    }
+  }
+
+  button {
+    margin-left: 2rem;
+    background: transparent;
+    border: 0;
+    transition: transform 0.8s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px); /* Efeito de desfoque no fundo */
+  z-index: 1000;
+}
+
+.modalContent {
+  background: var(--dark-900);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  color: var(--white);
+}
+
+.modalActions {
+  margin-top: 1rem;
+
+  button {
+    margin: 0 0.8rem; /* Aumentei a margem para separar mais os botões */
+    padding: 0.7rem 1.5rem; /* Aumentei o padding para maior área de clique */
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 0.5rem;
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    }
+  }
+
+  .confirmButton {
+    background-color: #3fffa3;
+    color: #fff;
+  }
+
+  .cancelButton {
+    background-color: #ff3f4b;
+    color: #fff;
+  }
+}
