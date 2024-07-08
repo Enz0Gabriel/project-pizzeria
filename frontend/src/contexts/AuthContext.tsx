@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState} from 'react';
+import { createContext, ReactNode, useState, useEffect} from 'react';
 
 import { api } from '../services/apiClient'
 
@@ -51,6 +51,31 @@ export function signOut(){
 export function AuthProvider({ children }: AuthProviderProps){
     const [user, setUser] = useState<UserProps>()
     const isAuthenticated = !!user;
+
+    useEffect(() => {
+        
+        // tentar pegar algo no cookie
+        const { '@nextauth.token': token } = parseCookies();
+
+        if(token){
+            api.get('/me').then(response => {
+                const {id, name, email} = response.data;
+
+                setUser({
+                    id,
+                    name,
+                    email
+                })
+
+            })
+            .catch(() => {
+                //Se deu erro deslogamos o user.
+                signOut()
+            })
+        }
+
+
+    }, [])
 
     async function signIn({ email, password }: SignInProps){
         try{
