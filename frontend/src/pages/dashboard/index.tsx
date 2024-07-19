@@ -116,7 +116,7 @@ export default function Dashboard({ orders }: HomeProps){
 
                     {orderList.length === 0 && (
                         <span className={styles.emptyList}>
-                            Nenhum pedido aberto foi encontrad
+                            Nenhum pedido aberto foi encontrado
                         </span>
                     )}
 
