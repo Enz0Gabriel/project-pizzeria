@@ -8,7 +8,11 @@ const AppRoutes = () => {
 
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Dashboard" component={Dashboard} options={{ headerShown: true }} />
+      <Stack.Screen 
+      name="Dashboard" 
+      component={Dashboard} 
+      options={{ headerShown: false }} 
+      />
     </Stack.Navigator>
   );
 };
