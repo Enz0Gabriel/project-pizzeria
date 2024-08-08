@@ -4,12 +4,14 @@ import { View,
          Text,
          StyleSheet,
          TouchableOpacity,
-         TextInput
+         TextInput,
+         Modal,
         } from 'react-native';
 
 import Feather from 'react-native-vector-icons/Feather';
 
 import { api } from "../../services/api";
+import { ModalPicker } from '../../components/ModalPicker'
 
 import { useRoute, RouteProp, useNavigation } from "@react-navigation/native";
 
@@ -20,7 +22,7 @@ type RouteDetailParams = {
   }
 }
 
-type CategoryProps = {
+export type CategoryProps = {
   id: string;
   name: string;
 }
@@ -32,7 +34,8 @@ export default function Order() {
   const navigation = useNavigation();
 
   const [category, setCategory] = useState<CategoryProps[] | []>([]);
-  const [categorySelected, setCategorySelected] = useState<CategoryProps>()
+  const [categorySelected, setCategorySelected] = useState<CategoryProps>();
+  const [modalCategoryVisible, setModalCategoryVisible] = useState(false);
 
   const [amount, setAmount] = useState('1')
 
@@ -64,6 +67,10 @@ export default function Order() {
     }
   }
 
+  function handleChangeCategory(item: CategoryProps){
+    setCategorySelected(item);
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -74,7 +81,9 @@ export default function Order() {
       </View>
 
       {category.length !== 0 && (
-        <TouchableOpacity style={styles.input}>
+        <TouchableOpacity style={styles.input}
+         onPress={() => setModalCategoryVisible(true) 
+         }>
         <Text style={{ color: '#FFF' }}>
           {categorySelected?.name}
         </Text>
@@ -105,6 +114,22 @@ export default function Order() {
         <Text style={styles.buttonText}>Avançar</Text>
       </TouchableOpacity>
       </View>
+
+
+      <Modal
+        transparent={true}
+        visible={modalCategoryVisible}
+        animationType="fade"
+
+      >
+
+        <ModalPicker
+          handleCloseModal={ () => setModalCategoryVisible(false) }
+          options={category}
+          selectedItem={ handleChangeCategory }
+        />
+
+      </Modal>
 
 
 
