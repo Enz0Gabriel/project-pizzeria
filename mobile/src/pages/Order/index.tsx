@@ -6,12 +6,15 @@ import { View,
          TouchableOpacity,
          TextInput,
          Modal,
+         FlatList,
+         Alert,
         } from 'react-native';
 
 import Feather from 'react-native-vector-icons/Feather';
 
 import { api } from "../../services/api";
 import { ModalPicker } from '../../components/ModalPicker'
+import { ListItem } from "../../components/ListItem";
 
 import { useRoute, RouteProp, useNavigation } from "@react-navigation/native";
 
@@ -32,6 +35,13 @@ type ProductProps = {
   name: string;
 }
 
+type ItemProps = {
+  id: string;
+  product_id: string;
+  name: string;
+  amount: string | number;
+}
+
 type OrderRouteProps = RouteProp<RouteDetailParams, 'Order'>;
 
 export default function Order() {
@@ -47,6 +57,7 @@ export default function Order() {
   const [modalProductVisible, setModalProductVisible] = useState(false);
 
   const [amount, setAmount] = useState('1')
+  const [items, setItems] = useState<ItemProps[]>([])
 
   useEffect(() => {
     async function loadInfo(){
@@ -104,6 +115,10 @@ export default function Order() {
     setProductSelected(item)
   }
 
+  async function handleAdd(){
+    Alert.alert("CLICOOUUU")
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -143,14 +158,25 @@ export default function Order() {
       </View>
 
       <View style={styles.actions}>
-      <TouchableOpacity style={styles.buttonAdd}>
+      <TouchableOpacity style={styles.buttonAdd} onPress={handleAdd}>
         <Text style={styles.buttonText}>+</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity 
+      style={[styles.button, { opacity: items.length === 0 ? 0.3 : 1 }]}
+      disabled={items.length === 0}
+      >
         <Text style={styles.buttonText}>Avançar</Text>
       </TouchableOpacity>
       </View>
+
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        style={{ flex: 1, marginTop: 24 }}
+        data={items}
+        keyExtractor={(item) => item.id}
+        renderItem={ ( {item} ) =>  <ListItem data={item}/>}
+      />
 
 
       <Modal
@@ -179,7 +205,7 @@ export default function Order() {
           options={products}
           selectedItem={ handleChangeProduct }
         />
-        
+
       </Modal>
 
       
