@@ -115,36 +115,59 @@ export default function Order() {
     setProductSelected(item)
   }
 
+  // adicionando um produto nessa mesa
   async function handleAdd(){
-    Alert.alert("CLICOOUUU")
+    const response = await api.post('/order/add', {
+      order_id: route.params?.order_id,
+      product_id: productSelected?.id,
+      amount: Number(amount)
+    })
+
+    let data = {
+      id: response.data.id,
+      product_id: productSelected?.id as string,
+      name: productSelected?.name as string,
+      amount: amount
+    }
+
+
+    setItems(oldArray => [...oldArray, data])
+
+
+
   }
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>Mesa {route.params.number}</Text>
-        <TouchableOpacity onPress={handleCloseOrder}>
-        <Feather name="trash-2" size={28} color="#FF3F4b" />
-        </TouchableOpacity>
+          {items.length === 0 && (
+            <TouchableOpacity onPress={handleCloseOrder}>
+            <Feather name="trash-2" size={28} color="#FF3F4b" />
+            </TouchableOpacity>
+          )}
       </View>
 
       {category.length !== 0 && (
-        <TouchableOpacity style={styles.input}
-         onPress={() => setModalCategoryVisible(true) 
-         }>
-        <Text style={{ color: '#FFF' }}>
-          {categorySelected?.name}
-        </Text>
-      </TouchableOpacity>
-      )}
-
-      {products.length !== 0 && (
-        <TouchableOpacity style={styles.input} onPress={ () => setModalProductVisible(true)}>
+        <TouchableOpacity 
+          style={styles.input}
+          onPress={() => setModalCategoryVisible(true)} 
+        >
           <Text style={{ color: '#FFF' }}>
-            {productSelected?.name}
+            {categorySelected?.name}
           </Text>
         </TouchableOpacity>
       )}
+
+      <TouchableOpacity 
+        style={styles.input} 
+        onPress={() => products.length !== 0 ? setModalProductVisible(true) : Alert.alert('Aviso', 'Não há produtos disponíveis nesta categoria')}
+        disabled={products.length === 0}
+        >
+        <Text style={{ color: products.length !== 0 ? '#FFF' : '#A9A9A9' }}>
+          {products.length !== 0 ? productSelected?.name : 'Sem produtos'}
+        </Text>
+      </TouchableOpacity>
 
       <View style={styles.qtdContainer}>
         <Text style={styles.qtdText}>Quantidade</Text>
