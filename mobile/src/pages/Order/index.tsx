@@ -131,11 +131,29 @@ export default function Order() {
     }
 
 
+
     setItems(oldArray => [...oldArray, data])
 
 
 
   }
+
+  async function handleDeleteItem(item_id: string){
+    await api.delete('/order/remove', {
+      params:{
+        item_id: item_id
+      }
+    })
+
+    // após remover da api removemos esse item da nossa lista de items
+    let removeItem = items.filter( item => {
+      return (item.id !== item_id)
+    })
+
+    setItems(removeItem)
+
+  }
+
 
   return (
     <View style={styles.container}>
@@ -178,6 +196,7 @@ export default function Order() {
         value={amount}
         onChangeText={setAmount}
         />
+
       </View>
 
       <View style={styles.actions}>
@@ -198,7 +217,7 @@ export default function Order() {
         style={{ flex: 1, marginTop: 24 }}
         data={items}
         keyExtractor={(item) => item.id}
-        renderItem={ ( {item} ) =>  <ListItem data={item}/>}
+        renderItem={ ( {item} ) =>  <ListItem data={item} deleteItem={handleDeleteItem} />}
       />
 
 
