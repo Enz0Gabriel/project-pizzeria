@@ -11,7 +11,10 @@ export type StackPramsList = {
     number: number | string;
     order_id: string;
   };
-  FinishOrder: undefined
+  FinishOrder: {
+    number: number | string;
+    order_id: string;
+  };
 }
 
 const AppRoutes = () => {
