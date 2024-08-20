@@ -1,5 +1,7 @@
 # 🍕 PROJECT-PIZZARIA 🍕
 
+![](https://github.com/Enz0Gabriel/project-pizzeria/blob/main/frontend/src/assets/pizzaria-projeto.png)
+
 ## Conteúdo
 * [Sobre a aplicação](#sobre-a-aplicação)
 * [Tecnologias](#hammer_and_wrench-tecnologias)
