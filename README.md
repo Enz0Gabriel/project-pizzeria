@@ -72,7 +72,7 @@ $ npx react-native run-android
 ```
 
 ## :camera_flash: Screenshots
-![](https://github.com/Enz0Gabriel/project-pizzeria/frontend/src/assets/pizza-web.gif)
+![](https://github.com/Enz0Gabriel/project-pizzeria/blob/main/frontend/src/assets/pizza-web.gif)
 
 ## :balance_scale: Licença
 Este projeto está licenciado sob a [licença MIT](LICENSE).
