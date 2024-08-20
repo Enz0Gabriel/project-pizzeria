@@ -1,4 +1,4 @@
-# 🍕 MY-PIZZA 🍕
+# 🍕 PROJECT-PIZZARIA 🍕
 
 ## Conteúdo
 * [Sobre a aplicação](#sobre-a-aplicação)
