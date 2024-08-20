@@ -1,40 +1,82 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🍕 MY-PIZZA 🍕
 
-## Getting Started
+## Conteúdo
+* [Sobre a aplicação](#sobre-a-aplicação)
+* [Tecnologias](#hammer_and_wrench-tecnologias)
+* [Iniciando a Aplicação](#car-Iniciando-a-aplicação)
+* [Screenshots](#camera_flash-screenshots)
+* [Licença](#balance_scale-licença)
+* [Contato](#email-contato)
 
-First, run the development server:
+## Sobre a aplicação
+Aplicação completa para pizzaria desenvolvida em 3 camadas, durante o curso [Projeto Completo NodeJS, React, React Native, TypeScript](https://www.udemy.com/course/dev-fullstack/), do prof. Matheus Fraga. O projeto é dividido em três partes:
+<br />
+1. **Back-end**: Desenvolvido em Node.JS com Typescript, utilizando Prisma com banco de dados PostgreSQL.
+2. **Front-end**: Permite cadastrar produtos, categorias e fechar mesas. Desenvolvido em React com Next.js, Typescript e SASS.
+3. **Mobile**: Permite lançar o consumo das mesas. Desenvolvido em React Native com Typescript.
 
+## :hammer_and_wrench: Tecnologias
+* **Back-end**
+  * Node.js com Typescript
+  * Prisma ORM para acessar o banco de dados
+  * Autenticação JWT
+  * Multer para upload de imagens
+
+* **Front-end**
+  * React com Next.js e Typescript
+  * Nookies para armazenar cookies
+  * SASS para estilização
+
+* **Mobile**
+  * React Native com Typescript
+  * AsyncStorage para armazenamento de chaves/valores
+  * Axios para consumo de API
+  * React Navigation para navegação
+  * Styled Components para estilização
+  * React Native Reanimated para animações
+
+## :car: Iniciando a aplicação
+Baixe o repositório com git clone e entre na pasta do projeto.
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+$ git clone https://github.com/Enz0Gabriel/project-pizzeria
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### __Back-end__
+Na pasta backend, renomeie o arquivo _.env.local-example_ para _.env.local_<br/>
+Informe a URL da API na variável __DATABASE_URL__.<br/>
+Informe a palavra secreta da API na variável __JWT_SECRET__<br/>
+```bash
+# Instale as dependências
+$ yarn
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+# Para iniciar a aplicação na porta 3333
+$ yarn dev
+```
+### __Front-end__
+  Na pasta web, informe o IP da aplicação back-end no arquivo _src/services/api.ts_<br/>
+```bash
+# Instale as dependências
+$ yarn
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+# Para iniciar a aplicação na porta 3000
+$ yarn dev
+```
+### __Mobile__
+  Na pasta web, informe o IP da aplicação back-end no arquivo _src/services/api.ts_<br/>
+```bash
+# Instale as dependências
+$ npx
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# Para iniciar a aplicação
+$npx react-native run-android
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## :camera_flash: Screenshots
+![](https://github.com/Enz0Gabriel/project-pizzeria/main/web/src/assets/pizza-web.gif)
 
-## Learn More
+## :balance_scale: Licença
+Este projeto está licenciado sob a [licença MIT](LICENSE).
 
-To learn more about Next.js, take a look at the following resources:
+## :email: Contato
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+E-mail: [**luiiz.silverio@gmail.com**](mailto:luiiz.silverio@gmail.com)
